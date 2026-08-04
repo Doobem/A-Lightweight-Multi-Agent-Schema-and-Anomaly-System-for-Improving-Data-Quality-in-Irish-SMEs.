@@ -1,0 +1,16 @@
+{
+    "realism": 1,
+    "diversity": 7,
+    "difficulty": 25,
+    "missing_types": [
+        "negative_numeric",
+        "invalid_category",
+        "missing_categorical",
+        "decimal_numeric",
+        "misspell_category",
+        "extreme_numeric",
+        "missing_numeric"
+    ],
+    "suggestions": [],
+    "stop": false
+}
