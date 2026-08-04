@@ -53,7 +53,7 @@ Large language models (LLMs) data agent is specialised in using LLM to automate 
 ####   Agentic AI and Multi-Agent Systems
 Agentic AI refers to systems that consist of multiple autonomous agents that collaborate to perform complex tasks. Prashant D. Sawant (2025) defines agentic AI as “advanced form of artificial intelligence that combines autonomous decision-making with sophisticated reasoning capabilities, without constant human oversight”. In the context of SMEs, agentic AI offers an explainable approach to automating data quality processes (Gautam Ulhas Parab, 2024). Agentic AI can support small business process automation by dividing tasks into specialised agents such as planner, validators, and executors (fig 1). The architecture aligns well with data quality workflows, which naturally decompose into profiling, cleaning, validation, and reporting. 
 
-<img width="651" height="389" alt="image" src="https://github.com/user-attachments/assets/7253f3d8-1b75-4ae9-bf76-f797a7452d91" />
+<img width="651" height="389" alt="image" src="https://github.com/user-attachments/assets/8f3e3dc6-f9de-4fa0-befa-d8898217624e" />
 
 Figure 1: Multi Agent system model for Agentic AI in SMEs(Olujimi et al., 2025)
 
@@ -83,7 +83,7 @@ This methodological approach used to design, develop and evaluates a lightweight
 ###  Research Design
 The study adopts a quantitative research methodology which follows the Design Science Research methodology (DSRM). This is widely applied in information systems research where the objective is to build and evaluate ab artefact (Drechsler et al., 2022). This research paper will be conducted in these six (6) phases in developing a lightweight agentic AI for automated data quality (figure 2).
 
-<img width="398" height="273" alt="image" src="https://github.com/user-attachments/assets/cc70abaa-a4d5-4c33-ba06-0da4708df52d" />
+<img width="398" height="273" alt="image" src="https://github.com/user-attachments/assets/90c75bdc-4c6d-4700-95c3-456e40f7e25c" />
 
 ###  Problem Identification
 The research problem addressed in this study is practical and technical; SMEs in Ireland lack automated, affordable and intelligent tools for improving data quality. This aligns with DSR’s on solving real world problems through technological artefacts (Yigit Ozkan and Spruit, 2023). Poor data quality has been shown to negatively affect organisational performance, forecasting accuracy and compliance. Existing data quality tools are often too complex or too costly for SMEs (Scarton et al., 2025). This has created a need for lightweight and automated solutions. Furthermore, recent work on data quality emphasises that reporting anomalies significantly undermine analytical reliability and decision making (Fadlallah et al., 2023). This problem therefore highlights the need for this system, designing a lightweight automated multi agent detection system that performs schema validation and detects statistical anomalies. This aligns with recent research for accessible AI solutions tailored to SMEs (Ben Slimane et al., 2022).
@@ -114,7 +114,7 @@ The system is designed as a multi-layer architecture that processes publicly ava
 ###  Data Ingestion Layer
 The Data ingestion Layer is responsible for loading datasets from SharePoint or local storage. It supports CSV and Excel formats, reflecting the dominant data formats used by SMEs. Public datasets often exhibit structural inconsistencies; thereby making ingestions a critical step in ensuring downstream reliability (Sandro, 2026). The ingestion section performs initial structural checks, file type validation, extraction, and normalisation. The integration with SharePoint is achieved through Microsoft Graph API, enabling automated retrieval of newly uploaded datasets. This design ensures that SMEs can continue using familiar storage workflows while benefiting from automated data quality analysis. 
 
-<img width="630" height="944" alt="image" src="https://github.com/user-attachments/assets/8484b869-2b1a-41f4-a4d6-995d1829f073" />
+<img width="630" height="944" alt="image" src="https://github.com/user-attachments/assets/a1da1020-304d-4224-8630-35f6529bdf6e" />
 
 Figure 3: System Architecture
 
@@ -162,29 +162,29 @@ The section evaluates the performance of the multi agent anomaly detection and s
 ### Experiment/Case study1 – Milk Quality Traits & Mid Infrared Spectral Data
 The milk quality dataset is the largest and most structurally complex dataset evaluated in this paper. it contains hoof health traits, body condition scores (BCS), Locomotion cores, lesion indicators, and mid infrared spectral measurements for thousands of dairy cows. This dataset exhibits extreme sparsity, high missingness and anomalies; thereby making it an ideal stress test for the anomaly detection system.
 
- <img width="964" height="412" alt="image" src="https://github.com/user-attachments/assets/65ec326c-a2f6-46ea-9b0b-78df6f46acea" />
+<img width="964" height="412" alt="image" src="https://github.com/user-attachments/assets/7a7b326c-8b9e-454b-8555-6bf1b58ac582" />
 
 Figure 4: Case Study 1-Missing Values Visualization
 
 Almost hoof-health columns had missing values exceeding 3800 rows as shown in figure 4. This visual made the sparsity immediately apparent, with bars reaching the top of the chart for most columns. Such extreme missingness is typical in agricultural datasets where hoof lesions are only recorded during trimming events and BCS measurements are seasonal (Bumbálek et al., 2026). The spectral data may be incomplete due to equipment limitations and locomotion scoring is done infrequently. The multi agent system correctly identified these structured gaps, demonstrating strong schema validation capability.
 
-<img width="860" height="422" alt="image" src="https://github.com/user-attachments/assets/51f0f21f-65c7-410a-b8a9-ef3a69a836c1" />
+<img width="860" height="422" alt="image" src="https://github.com/user-attachments/assets/ed2a070e-b6be-4960-8a68-42a7588aae6a" />
 
 Figure 5: Outlier Scatter Plot
 
 The scatter plot displays numeric outliers in the Milk quality dataset from columns (figure 5). Most points sit close to zero, which is the expected range for technician IDs. However, several points shoot extremely high, reaching values above two hundred million. These isolated high value points represent incorrect data entry, not real technician IDs. It shows that the dataset contains major numeric anomalies that must be cleaned before any modelling or analysis. The multi agent system correctly flagged these as medium severity numeric anomalies.
 
-<img width="556" height="443" alt="image" src="https://github.com/user-attachments/assets/c9208e2e-92bb-4c35-922d-d385f605cadf" />
+<img width="556" height="443" alt="image" src="https://github.com/user-attachments/assets/0d9a0241-be31-4819-a2d6-eb195e1449fa" />
 
 Figure 6: Case Study 1-Severity Distribution
 
 The severity distribution pie chart showed that majority of anomalies are Low severity, reflecting missing values, outliers, and structural gaps (figure 6). The medium severity is appropriate because missing vales are expected in the domain, severity scoring aligns well with domain expectations. This shows that the milk Quality dataset suffers from structural missingness.
  
-<img width="495" height="299" alt="image" src="https://github.com/user-attachments/assets/9e997cec-0e3d-443f-a4a1-42e915632d22" />
+<img width="495" height="299" alt="image" src="https://github.com/user-attachments/assets/89f1eed3-15a3-461b-88a8-a846499b3b5f" />
 
 Figure 7: Case Study 1-Anomaly types.
 
-<img width="504" height="306" alt="image" src="https://github.com/user-attachments/assets/caf1db19-8dca-41b1-b732-51c72473c1b6" />
+<img width="504" height="306" alt="image" src="https://github.com/user-attachments/assets/105147a2-e654-426c-bd71-081a8c1ddbca" />
 
 Figure 8: Case Study 1-Schema vs Anomalies.
  
@@ -194,29 +194,29 @@ This case study demonstrates that the multi-agent system performs strongly on ag
 ###  Experiment/Case study 2 – Ecommerce Sales 
 The Ecommerce Sales dataset contains transactional information including order dates, product names, categories, regions, quantities etc. Unlike the previous datasets, this is small making it ideal for evaluating how the multi agent system performs on commercial retail data.
 
-<img width="805" height="340" alt="image" src="https://github.com/user-attachments/assets/8e7dcf0b-b6ff-4cb8-9c53-9b9908b9778c" />
+<img width="805" height="340" alt="image" src="https://github.com/user-attachments/assets/3619cc18-acf5-4b45-8c8c-b5cfe4ee4349" />
 
 Figure 9: Case Study 2- Missing Values
 
 There is light structural missingness across the dataset, the missing count are small which suggests occasional incomplete transactions (figure9). Manual data entry and fields not filled during order creation are attributes of the missingness. The multi agent system flagged these as medium severity schema issues.
 
-<img width="782" height="385" alt="image" src="https://github.com/user-attachments/assets/658b32e5-f3a6-40ad-981d-5e1abee85e9c" />
+<img width="782" height="385" alt="image" src="https://github.com/user-attachments/assets/03b9a369-b777-4ef4-a6c9-eb772f6149ec" />
  
 Figure 10:Case Study 2-Outliers
 
 The scatter plot (figure 10) shows that most Ecommerce sales values fall in a normal band between 2,000 and 3,000. Several points rise sharply to around 10,000 to 11,000; indicating clear outliers. These represent exceptional large transactions or potential data entry errors, making them important to investigate during data quality assessment.
 
- <img width="492" height="459" alt="image" src="https://github.com/user-attachments/assets/59af2dd9-e377-416c-b3c6-00d14d7052bd" />
+<img width="492" height="459" alt="image" src="https://github.com/user-attachments/assets/bfef8ac5-2a92-409c-a6e8-43e76bb2046a" />
 
 Figure 11:Case Study 2- Severity Distribution
 
 The most anomalies in the ecommerce sales dataset are low severity, making 76.9% of all detected issues and medium severity anomalies account for the remaining 23.1%. this confirms that the dataset is structurally stable, numerically clean, and free of extreme errors.
 
- <img width="498" height="242" alt="image" src="https://github.com/user-attachments/assets/6202e4ae-0f52-4ab3-a4e4-2a58ead53608" />
+<img width="498" height="242" alt="image" src="https://github.com/user-attachments/assets/a589639c-f16e-4f22-a958-86c32681088f" />
 
 Figure 12:Case Study 2-Anomaly Types.
 
-<img width="488" height="237" alt="image" src="https://github.com/user-attachments/assets/7c49870a-d4d3-41db-840a-c7e429894c1f" />
+<img width="488" height="237" alt="image" src="https://github.com/user-attachments/assets/c65b1067-2001-4b9a-8f0e-7e5f0db3f6ab" />
 
 Figure 13:Case Study 2-Schema vs Anomaly. 
 
