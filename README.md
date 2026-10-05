@@ -22,60 +22,6 @@ Minor contributions include the colour coded anomaly highlights in Excel, making
 
 This paper is organized as follows: the section of Literature Review examines recent research on SME data quality challenges, Multi Agent system and existing AI frameworks. The Methodology section outlines the design science approach used to develop and evaluate the Agentic system. The System Design section details the architectural decisions, agent responsibilities and workflow integration. The Implementation section describes the development of the Schema Agent, Anomaly Agent and automated reporting pipeline. The Evaluation section presents results from testing the system on SME datasets, including performance analysis and detection accuracy. Finally, the Conclusion summarizes the findings and provides recommendations for future works, including extensions into semantic validation and automated data cleaning.
 
-## Related Works
-Data quality has become a critical determinant of organisational performance, especially for small and medium sized enterprise (SMEs) undergoing digital transformation. SME’s form the backbone of Ireland economy, yet they face persistent challenges in adopting advanced digital technologies. The AI driven data quality solution is one of the biggest challenges SMEs encounters (Oldemeyer et al., 2024). Organizations heavily rely on data driven insights; the quality of underling data becomes a critical determinant of analytical accuracy and business performance. SMEs on the other hand lack the resources, expertise, and infrastructure required to implement robust data quality management system. 
-
-With the emerging technologies such as agentic AI and large language models (LLMs) offer opportunities for automating data quality processes in ways that are accessible and affordable for SMEs (Du et al., 2024). The purpose of this section is to synthesise existing research across interconnected areas to establish the intellectual foundation for developing a lightweight agentic AI system tailored to Irish SMEs. These interconnected systems consist of SME digital transformation, data quality challenges, automated data cleaning, agentic AI systems, and lightweight AI. The identification of the known, unknown and research gaps will be reviled to comprehend a proper related works.
-
-###  SMEs in Ireland and their Digital Transformation
-SMEs constitute 99% of all business in Ireland and the European union (EU), making them central to economic growth, employment, and innovation (Franz et al., 2024). Despite their importance, SMEs lag larger businesses in adopting digital technologies including adopting AI. Research shows that SMEs face structural barriers such as limited financial resources, lack of digital skills, and inadequate IT infrastructure (Kgakatsi et al., 2024). These constraints hinder the ability of SMEs to adopt advanced analytics and data management tools. Recent papers have demonstrated that AI adoption among SMEs is growing but remains significantly lower than in large enterprises. Oldemeyer et al. (2024) discovered that SMEs often lack the organisational readiness and technical expertise required to integrate AI into their operations. Schwaeke et al. (2025) report that SMEs struggle with AI adoption due to uncertainty about return on investment, lack of skilled employees and data privacy concerns. 
-
-These challenges are particularly similar in Ireland, where digital maturity varies widely across sectors. Most SMEs rely heavily on spreadsheets and manual processes rather than integrated information systems. This literature also emphasises that existing AI frameworks and tools are typically designed for larger enterprises, assuming access to cloud infrastructure, data engineers and advanced analytics teams (Hosseini and Seilani, 2025).  This creates a mismatch between available technologies and the practical realities of SMEs. As a result, SMEs require AI solutions that are low lost, easy to deploy, and capable of running on limited hardware conditions that current enterprise AI tools don’t meet.
-
-###  Data Quality Challenges in SMEs 
-Data quality is essential for effective analytics despite SMEs struggle with inconsistent and incomplete data. Le Dinh et al. (2025) describes data quality as one of the most significant barriers to business intelligence adoption in SMEs. They also added that poor data quality undermines trust in analytical outputs and reduces the value of decision support systems. Data quality issues in SMEs are not limited to missing values, schema drift, and manual entry errors (Guillen-Aguinaga et al., 2025).
-
-####   Structural and Resource Constraints
-SMEs typically lack dedicated data teams, data governance structures and enterprise grade tools. Studies show SMEs experience higher rates of missing data, inconsistent formats and manual entry errors compared to large organisations (Micheal Omowole et al., 2024). These issues arise from fragmented systems, reliance on spreadsheets and limited automation. The European Commission (2023) reports that Irish SMEs lag EU averages in digital maturity, particularly in data management capabilities. This gap directly impacts completeness and operational efficiency.
-
-####   Impact of Poor Data Quality
-Poor data quality reduces the accuracy of forecasting models, increases operational risk and leads to incorrect decision making (Ogrizović et al., 2024). Rajan (2024) emphasise that data cleaning remains one of the most time-consuming tasks in analytics pipelines, often consuming 60-80% of analyst effort. For SMEs, this burden is amplified due to limited staff and technical expertise. These data quality issues are worsened by SMEs over reliance on spreadsheets, fragmented systems, and manual workflows. Researchers argues that organisations without formal data governance structures are more likely to experience persistent data quality problems, which in turn limit their ability to adopt advanced analytics. 
-The cost and complexity of enterprise grade data quality tools make SMEs inaccessible, leaving many business dependents on manual cleaning processes that are time consuming and prone to error. Ogrizović et al. (2024) emphasises that poor data quality has a direct negative impact on machine learning performance, forecasting accuracy, and reporting reliability. This is a huge problem for SMEs attempting to adopt AI, as low-quality data can lead to misleading business insights and poor decision making. This therefore raises a clear need for automated, accessible data quality solutions tailored to SME constraints.
-
-###  Automated Data Quality Techniques
-Automated data cleaning has transformed over the years, moving form rule-based system to machine learning (ML) based imputation and anomaly detection. Liu et al. (2024) provide an overview of automated data cleaning techniques, stating the automation reduces manual effort and improves consistency but requires technical expertise and computational resources. Data quality tools such as Great Expectations and Deequ offer automated validation frameworks; but they require configuration skills that many SMEs lack (John M, 2025). Machine learning techniques have been applied to anomaly detection and schema alignment. Ogrizović et al. (2024) highlight that ML based data cleaning can improve accuracy but often requires large dataset and significant compute power.
-
-With the technologies advancing, LLM based approaches have emerged as a promising direction for automated data wrangling. Sun et al. (2025) demonstrate that LLMs can generate code for data cleaning tasks, reducing the need for manual rule creation. However, these techniques rely on cloud-based LLMs; which introduces cost and privacy concerns. Hosseini and Seilani (2025) argues that LLMs have the potential to transform data by using semantic understanding of data quality issues. Concerns are computationally cost and resource constrained environments. This exposes the gap between the capabilities of modern AI and the practical needs of SMEs.
-
-####  LLM for Data Quality
-Large language models (LLMs) data agent is specialised in using LLM to automate data analysis tasks (Sun et al., 2025). MLCopilot enable users to interact with notebook to enhance flexibility, they cannot automatically fix errors and require additional commands to support natural language input (Zhou et al., 2023; Maojun et al., 2025). LLMs ability to understand context and identify patterns makes it useful in resolving inconsistencies and identifying errors. As most LLMs can enhance data quality tasks; their deployment requires computational resources. This makes them inaccessible to SMEs without cloud infrastructure. Cloud based LLMs introduce GDPR risks; particularly for Irish SMEs handling customer or financial data. Recent research on data cleaning demonstrates the potential of LLMs to generate ontological functional dependencies for tabular data (Li and Döhmen, 2024). However, these systems remain experimental and are not designed for lightweight local deployment.
-
-####   Agentic AI and Multi-Agent Systems
-Agentic AI refers to systems that consist of multiple autonomous agents that collaborate to perform complex tasks. Prashant D. Sawant (2025) defines agentic AI as “advanced form of artificial intelligence that combines autonomous decision-making with sophisticated reasoning capabilities, without constant human oversight”. In the context of SMEs, agentic AI offers an explainable approach to automating data quality processes (Gautam Ulhas Parab, 2024). Agentic AI can support small business process automation by dividing tasks into specialised agents such as planner, validators, and executors (fig 1). The architecture aligns well with data quality workflows, which naturally decompose into profiling, cleaning, validation, and reporting. 
-
-<img width="651" height="389" alt="image" src="https://github.com/user-attachments/assets/8f3e3dc6-f9de-4fa0-befa-d8898217624e" />
-
-Figure 1: Multi Agent system model for Agentic AI in SMEs(Olujimi et al., 2025)
-
-However, existing Agentic AI research focuses primarily on enterprise-scale systems or cloud-based frameworks. There is limited work applying agentic AI to SME data quality workflows, and less on lightweight agentic systems that can run on SME hardware. LLM based agents excels at semantic reasoning, pattern recognition, contextual anomaly detection and schema inference. Ogrizović et al. (2024) noted that LLMs significantly improve anomaly detection accuracy compared to traditional statistical methods.
-
-Agent based architectures have gain traction as a means of structuring data quality workflows. Breck et al. (2019) argue that agentic designs improve transparency and maintainability by separating validation tasks into specialised units. This aligns with emerging orchestration frameworks such as Lang Graph; which support execution of multi-step workflows. Agent based systems reflect trends in AI assisted profiling, rule generation and reporting in coordinated pipelines. The two-agent architecture used in this project (Schema Agent and Anomaly Agent) mirrors these principles. It provides clear separation of concerns and enabling future extensibility. It aligns with recent research advocating for automation in data quality systems.(Betha, 2023)
-
-####   Lightweight AI and Local Deployment
-The lightweight AI focuses on running models efficiently on local devices with limited compute. This would be beneficial for SMEs that lack servers or cloud budgets. SMEs require solutions that are low cost, easy to deploy, locally executable. Sun et al. (2025) emphasises the importance of efficient AI inference on edge devices, arguing that lightweight architectures are essential for organisations with limited computational resources. 
-Further studies from researcher suggests the local deployment of large language models (LLMs) and serverless computing to enhance cost and energy efficiency (Peasley et al., 2025; Olujimi et al., 2025). SMEs faces persistent data quality challenges that hinder analytics adoption, yet existing tools are an over kill, expensive and complex for their needs. LLMs and Agentic AI offer new possibilities for automating data quality tasks, but current implementations are designed for enterprise environments and rely on cloud infrastructure.
-
-###  Workflow Orchestration and Automation
-Workflow orchestration has evolved into core capability for multi-step process in a data driven environment. Intelligent orchestration frameworks increasingly rely on agent-based components capable of performing specialised tasks such as anomaly detection and validation (Moreira et al., 2024). These systems emphasise transparent process and operational reliability, qualities that align closely with the two-agent architecture used in this project. Orchestrating schema validation and anomaly detection through Lang Graph, it aligns with trends in AI workflow that prioritise tasks.
-
-Microsoft centric environment demonstrates that SMEs benefit from orchestration frameworks that minimise infrastructure overhead (Dolk and Dolk, 2025). These embedded automations are within familiar tools such as SharePoint, Excel and Microsoft Teams. This directly informs the design of the present system, which uses Microsoft Graph API for the file ingestion and Power Automate for vent driven notifications. The pipeline makes it accessible to SMEs with limited technical capability, avoiding heavy orchestration platforms such as Airflow or Dagster.
-
-###  Identified Research Gap
-The research gap shows that there is no existing lightweight multi agent AI system designed specifically for automating data quality for SMEs in Ireland using free, open-source tools. Existing solutions require cloud infrastructure, enterprise level resources and technical expertise that SMEs do not possess. This gap is practical, technical and theoretical, addressing this gap would contribute to SME digital transformation and AI accessibility. Despite the rapid advancement of AI and data quality technologies; existing enterprises grade and cloud-based models (Microsoft Azure AI, Google Cloud Vertex AI and AWS Glus DataBrew services) remain an overkill with the operational realities of SMEs. 
-
-Related works consistently identifies that these systems are designed for organisations with substantial financial resources, mature digital infrastructures, and specialist technical employees. These global enterprise subscription models create high and often unpredictable costs, which SMEs find difficult to sustain (Oldemeyer et al., 2024; Sánchez et al., 2025). In addition, enterprise AI platforms assume the presence of data warehouses, cloud environments, and Machine learning operations (MLOps) teams, yet SMEs typically operate with minimal IT capacity and fragmented legacy systems (Ayinaddis, 2025). Evidence indicates that existing enterprise and cloud-based AI models are often too costly, intensive, data demanding and cloud dependant for SMEs. Hence, reinforcing the need for lightweight locally SME oriented AI solutions.
-
-This paper demonstrates that SMEs in Ireland face significant data quality challenges and existing tools are unsuitable. Emerging technologies like LLMs and agentic AI offer potentials but are not yet adapted to SME constraints. This directly leads to the central research question: “How can a lightweight agentic AI system be designed and implemented to automatically improve data quality for SMEs in Ireland”.
 
 ##  Research Method & Specification
 This methodological approach used to design, develop and evaluates a lightweight agentic AI system for automated data quality improvement for SMEs in Ireland. This section details the research framework, system architecture, agent design, implementation procedures, and the technologies used. The artifact is evaluated using quantitative performance metrics relevant to SME data quality improvement.
@@ -111,118 +57,11 @@ The section specifies the design specification of the lightweight multi agent an
 ###  System Architecture
 The system is designed as a multi-layer architecture that processes publicly available SME related datasets. The given architecture aligns with Morden AI system engineering principles that emphasises modularity and explainability (Floridi and Cowls, 2021). It ingests SME data files, interprets the file using a local large language model (LLM) to detect anomalies using statistical and logical methods. This generates a tabular report and triggers automated notifications through Microsoft teams using Power Automate (figure 3). Each layer is designed to operate independently while contributing to a cohesive end to end workflow.
 
-###  Data Ingestion Layer
-The Data ingestion Layer is responsible for loading datasets from SharePoint or local storage. It supports CSV and Excel formats, reflecting the dominant data formats used by SMEs. Public datasets often exhibit structural inconsistencies; thereby making ingestions a critical step in ensuring downstream reliability (Sandro, 2026). The ingestion section performs initial structural checks, file type validation, extraction, and normalisation. The integration with SharePoint is achieved through Microsoft Graph API, enabling automated retrieval of newly uploaded datasets. This design ensures that SMEs can continue using familiar storage workflows while benefiting from automated data quality analysis. 
+
 
 <img width="630" height="944" alt="image" src="https://github.com/user-attachments/assets/a1da1020-304d-4224-8630-35f6529bdf6e" />
+ System Architecture
 
-Figure 3: System Architecture
-
-###  Multi Agent Processing Layer
-The multi agent processing layer is the core analytical engine of the system; it consists of two coordinated agents implemented using Lang Graph. These agents operate concurrently and communicate through deterministic message passing, ensuring reproducibility and transparency.
-
-•	Semantic Schema Agent: This agent uses a locally deployed LLM (Ollama) to infer column meanings, detects semantic inconsistencies and classify data types. It interprets ambiguous column names, identifies categorical structures and provides semantic context for downstream anomaly detection. The local LLM ensures privacy and GDPR compliance. The schema validator node performs structural checks such as missing value detection, invalid formats, mixed type columns and category inconsistencies.
-
-•	Statistical Anomaly Agent: This agent applies statistical techniques including z score standardisation and sigma outlier detection. It evaluates numeric and categorical columns to detect unusual patterns, extreme values and low frequency categories. The row level analyser node evaluates logical rules and row-level contradictions such as negative values. It identifies anomalies that statistical methods alone may not detect.
-
-###  Evaluation and Fusion Layer
-The Evaluation and Fusion layer combine outputs from all agents. It performs deduplication, normalisation, severity scoring and aggregation of schema and row level findings. The multi-agent fusion improves anomaly detection reliability and aligns with recent research advocating hybrid approaches for tabular data quality (Mubarak and Fadlallah, 2026).
-
-###  Reporting Layer
-The reporting layer generates user friendly outputs; these include the excel highlighting and summary sheets. Anomalies are visually marked within the original spreadsheet using colour coded formatting. Visual anomaly significantly improve interpretability for non-technical users. The system generates summary sheets containing schema interpretation, anomaly counts, severity levels and descriptive statistics. This aligns with the human centred design principles for AI Driven data quality tools (Floridi and Cowls, 2021).
-
-###  Automation and Notification Layer
-A key innovation of the system its integration with Microsoft 365 automation tools. This layer ensures that anomaly detection is communicated promptly to SME stakeholders.
-•	SharePoint Upload Workflow: processed files and anomaly reports are uploaded automatically to designated SharePoint directories. Public sector organisations increasingly rely on cloud-based collaboration platforms, making this integration highly relevant (Schulze et al., 2025).
-•	Power Automate Trigger: A power automates flow monitors the SharePoint directory for newly uploaded anomaly reports. Low code automation tools have been shown to improve operational responsiveness in SMEs (Ben Slimane et al., 2022).
-•	Microsoft Teams Notification: the flow sends a real time message to a designated Teams channel, informing staff that a new anomaly report is available. Real time notifications improve data governance and support timely corrective action (Harmouch and Naumann, 2024).
-The architecture integrates semantic inference, statistical analysis, automated reporting and Microsoft 365 workflow automation. The design ensures that SMEs can adopt AI Driven data quality tools without requiring specialised infrastructure of technical expertise. 
-
-##  Implementation
-The implementation of the multi agent system integrates semantic inference, statistical anomaly detection, automated reporting, and Microsoft 365 workflow automation. The description emphasises the tools, technologies and language used to generate the outputs. The development of the system was conducted using a combination of Python, Lang Graph, Ollama, Microsoft Graph API, SharePoint, Power Automate and Microsoft Teams. Python served as the primary programming language due to its extensive data processing ecosystem and compatibility with agent-based workflows. Lang Graph provided deterministic orchestration of the multi agent pipeline, while Ollama enables local deployment of the large language model (LLM) used for semantic schema inference. Microsoft Graph API facilitated integration with SharePoint and Power Automate enabled workflow automation and notification delivery through Teams. All components were executed on a standard SME level workstation, demonstrating that the system does not require specialised hardware or cloud-based AI services.
-
-System execution begins when an SME dataset is uploaded to the designate SharePoint directory. The system automatically retrieves the file using Microsoft Graph API and loads it into the Python processing environment. At this stage, all agents are fully operational and coordinated through Lang Graph. The Semantic Schema Agent interprets column names, infers data types and identifies semantic roles using the locally deployed LLM. Anomaly Agent performs numerical profiling, outlier detection and distribution analysis. Schema validator node checks for missing values, invalid format and category inconsistencies. Row-level Analyzer node evaluates logical contradictions and rule-based anomalies. These agents operate concurrently, producing structured anomaly objects that are passed to the evaluations and fusion layer. It consolidates and score anomalies, generating a unified anomaly report.
-
-An excel file containing the original dataset with anomalies visually highlighted using colour coded formatting. Each anomaly type such as missing values, outliers and invalid formats is assigned a distinct colour. The output support non-technical SME users by embedding insights directly into familiar spreadsheet environments. The SME dataset is moved to a processed folder after the agents are done, summary sheet is automatically appended to the excel file. It contains a schema and anomaly report, it provides a high-level overview of data quality issues and supports managerial decision making. Once the anomaly report is uploaded back to SharePoint, a Power Automate flow detects the new file and send a real time notification to a designated Microsoft Teams channel. This ensures rapid awareness and support timely corrective action within SME workflows.
-
-The tools and technologies used for this implementation are as follows:
-•	Python: primary programming language for data processing, agent orchestration, and report generation. Python libraries such as Pandas, NumPy, OpenPyXL for data manipulation, statistical analysis and Excel formatting. 
-•	Lang Graph: multi agent orchestration framework.
-•	Ollama: Local LLM deployment for semantic schema inference.
-•	Microsoft Graph API: SharePoint integration for file retrieval and upload.
-•	SharePoint Online: Cloud storage for datasets and anomaly reports.
-•	Power Automate: Workflow automation for detecting new reports and triggering notifications.
-•	Microsoft Teams: communication platform for delivering real time anomaly alerts.
-
-These tools and technologies collectively enabled the creation of a fully automated, privacy preserving, SME data quality system. An operational multi agent anomaly detection and semantic statistical analysis system is produced, generating reports and delivering automated notification through Microsoft teams. These are designed to be accessible to non-technical users while maintaining methodological rigour and operational reliability. 
-
-##  Evaluation
-The section evaluates the performance of the multi agent anomaly detection and schema validation system using a series of experiments conducted on publicly available Irish datasets. The analysis focuses on the most relevant results that directly support the research questions of this paper. The evaluation is structures into two case studies, each representing a different dataset type. Each case study represents a different dataset type commonly encountered in SME environments. Statistical tools are applied to assess anomaly detection accuracy, robustness, and significance.
-
-### Experiment/Case study1 – Milk Quality Traits & Mid Infrared Spectral Data
-The milk quality dataset is the largest and most structurally complex dataset evaluated in this paper. it contains hoof health traits, body condition scores (BCS), Locomotion cores, lesion indicators, and mid infrared spectral measurements for thousands of dairy cows. This dataset exhibits extreme sparsity, high missingness and anomalies; thereby making it an ideal stress test for the anomaly detection system.
-
-<img width="964" height="412" alt="image" src="https://github.com/user-attachments/assets/7a7b326c-8b9e-454b-8555-6bf1b58ac582" />
-
-Figure 4: Case Study 1-Missing Values Visualization
-
-Almost hoof-health columns had missing values exceeding 3800 rows as shown in figure 4. This visual made the sparsity immediately apparent, with bars reaching the top of the chart for most columns. Such extreme missingness is typical in agricultural datasets where hoof lesions are only recorded during trimming events and BCS measurements are seasonal (Bumbálek et al., 2026). The spectral data may be incomplete due to equipment limitations and locomotion scoring is done infrequently. The multi agent system correctly identified these structured gaps, demonstrating strong schema validation capability.
-
-<img width="860" height="422" alt="image" src="https://github.com/user-attachments/assets/ed2a070e-b6be-4960-8a68-42a7588aae6a" />
-
-Figure 5: Outlier Scatter Plot
-
-The scatter plot displays numeric outliers in the Milk quality dataset from columns (figure 5). Most points sit close to zero, which is the expected range for technician IDs. However, several points shoot extremely high, reaching values above two hundred million. These isolated high value points represent incorrect data entry, not real technician IDs. It shows that the dataset contains major numeric anomalies that must be cleaned before any modelling or analysis. The multi agent system correctly flagged these as medium severity numeric anomalies.
-
-<img width="556" height="443" alt="image" src="https://github.com/user-attachments/assets/0d9a0241-be31-4819-a2d6-eb195e1449fa" />
-
-Figure 6: Case Study 1-Severity Distribution
-
-The severity distribution pie chart showed that majority of anomalies are Low severity, reflecting missing values, outliers, and structural gaps (figure 6). The medium severity is appropriate because missing vales are expected in the domain, severity scoring aligns well with domain expectations. This shows that the milk Quality dataset suffers from structural missingness.
- 
-<img width="495" height="299" alt="image" src="https://github.com/user-attachments/assets/89f1eed3-15a3-461b-88a8-a846499b3b5f" />
-
-Figure 7: Case Study 1-Anomaly types.
-
-<img width="504" height="306" alt="image" src="https://github.com/user-attachments/assets/105147a2-e654-426c-bd71-081a8c1ddbca" />
-
-Figure 8: Case Study 1-Schema vs Anomalies.
- 
-Different anomaly type is detected in this dataset, and the patterns are uneven (figure7). Suspicious Zero values are the most common anomaly with over 220,000 occurrences. Missing values are the second most frequent, with around 125,000 occurrences. Outliers occur with only about 2,000 cases and the Schema missing values are almost non-existent. Anomalies dominate the dataset which shows that almost all detected issues are numeric (figure8). The Schema Bar is empty, the dataset structure (columns, types) is stable. The dataset suffers from value level issues, not structural issues. 
-This case study demonstrates that the multi-agent system performs strongly on agricultural datasets. It successfully identifies structural gaps, numeric outliers, and repeated anomalies. This provides a clear picture of data quality challenges. These findings confirm the systems suitability for agricultural data validation and preprocessing.
-
-###  Experiment/Case study 2 – Ecommerce Sales 
-The Ecommerce Sales dataset contains transactional information including order dates, product names, categories, regions, quantities etc. Unlike the previous datasets, this is small making it ideal for evaluating how the multi agent system performs on commercial retail data.
-
-<img width="805" height="340" alt="image" src="https://github.com/user-attachments/assets/3619cc18-acf5-4b45-8c8c-b5cfe4ee4349" />
-
-Figure 9: Case Study 2- Missing Values
-
-There is light structural missingness across the dataset, the missing count are small which suggests occasional incomplete transactions (figure9). Manual data entry and fields not filled during order creation are attributes of the missingness. The multi agent system flagged these as medium severity schema issues.
-
-<img width="782" height="385" alt="image" src="https://github.com/user-attachments/assets/03b9a369-b777-4ef4-a6c9-eb772f6149ec" />
- 
-Figure 10:Case Study 2-Outliers
-
-The scatter plot (figure 10) shows that most Ecommerce sales values fall in a normal band between 2,000 and 3,000. Several points rise sharply to around 10,000 to 11,000; indicating clear outliers. These represent exceptional large transactions or potential data entry errors, making them important to investigate during data quality assessment.
-
-<img width="492" height="459" alt="image" src="https://github.com/user-attachments/assets/bfef8ac5-2a92-409c-a6e8-43e76bb2046a" />
-
-Figure 11:Case Study 2- Severity Distribution
-
-The most anomalies in the ecommerce sales dataset are low severity, making 76.9% of all detected issues and medium severity anomalies account for the remaining 23.1%. this confirms that the dataset is structurally stable, numerically clean, and free of extreme errors.
-
-<img width="498" height="242" alt="image" src="https://github.com/user-attachments/assets/a589639c-f16e-4f22-a958-86c32681088f" />
-
-Figure 12:Case Study 2-Anomaly Types.
-
-<img width="488" height="237" alt="image" src="https://github.com/user-attachments/assets/c65b1067-2001-4b9a-8f0e-7e5f0db3f6ab" />
-
-Figure 13:Case Study 2-Schema vs Anomaly. 
-
-The bar chart (figure12) shows that “Anomaly/VeryShortText” are by far the most common issue in this dataset, with over 350 occurrences, mostly triggered by short category labels. Majority of the issues arise from the values themselves rather than from structural problem (figure13), it indicates noisy transaction level in the data.
-
-Across all case study, the system demonstrated high Anomaly and Schema detection accuracy. Especially for missing vales, invalid formats, and extreme outliers. However, the case studies also reveal clear limitations that highlighted the continued need for human oversight. The agents lack domain awareness and rely heavily on pattern based rather than contextual understanding. The anomaly detection is not purely a computational task; it requires judgement, domain knowledge and interpretive reasoning. Hence human I the loop, they provide the contextual understanding need to interpret anomalies and schema correctly. the multi agent serves as a powerful first pass screening tool, but the final evaluation and decision making must be guided by human expertise. The multi-agent system is effective, scalable and valuable for initial anomaly and schema detection across diverse datasets. However, its limitations around domain interpretation and contextual reasoning make human analysts essential for ensuring accurate insight.
 
 ##  Conclusion and Future Work
 This paper set out to evaluate the effectiveness of a lightweight agentic AI system in detecting schema inconsistencies and anomalies within SME datasets. In addition, accessing the extent to which such the system can enhance the accuracy, completeness and consistency of SME data. The multi agent system successfully identified a wide range of anomalies across different case studies; including missing values schema inconsistencies, and outliers (figure 4). The Schema inconsistencies were reliably detected, even in datasets with minimal structural variation (Figure 13). Statistical anomalies such as outliers and suspicious zeros were consistently flagged, demonstrating strong numerical sensitivity. The system struggles with domain specific interpretation; anomaly density varies significantly across SME datasets. Human analysts are required, as the multi agent system cannot distinguish between legitimate business events and erroneous anomalies. These findings confirm that while agentic systems can automate anomaly and schema detection, they cannot replace human expertise. The implications of this paper are significant for SMEs; they often lack dedicated data teams. It can reduce manual inspection time for SMEs and allow operational efficiency. Future research should develop agent that incorporates domain knowledge to reduce false positive and improve contextual accuracy. Design workflows should have human in the loop, where analysts guide, validate and refine agent decisions. This will yield hybrid intelligence system that combines automation with expert judgement. This research demonstrates that lightweight agentic system can significantly improve SME data quality by automating anomaly detection across diverse datasets. The paper holds a strong foundation for future research and commercial development in agentic data quality automation.
